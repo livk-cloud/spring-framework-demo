@@ -1,0 +1,11 @@
+org.springframework.context.ApplicationListener=\
+    com.livk.event.LivkEventListener
+org.springframework.web.bind.annotation.RestControllerAdvice=\
+    com.livk.cloud.TestControllerAdvice
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.livk.config.LivkConfiguration,\
+  com.livk.config.SpringContextHolder
+org.springframework.context.ApplicationContextInitializer=\
+  com.livk.config.LivkApplicationContextInitializer
+org.springframework.boot.diagnostics.FailureAnalyzer=\
+  com.livk.config.IllegalArgumentFailureAnalyzer
