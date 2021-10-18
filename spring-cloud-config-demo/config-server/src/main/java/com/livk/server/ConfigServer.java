@@ -10,7 +10,6 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * </p>
  *
  * @author livk
- * @date 2021/10/8
  */
 @EnableConfigServer
 @SpringBootApplication

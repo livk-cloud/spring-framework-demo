@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author livk
- * @date 2021/10/8
  */
 @RestController
 @SpringBootApplication

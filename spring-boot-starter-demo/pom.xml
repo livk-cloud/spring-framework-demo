@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-boot-starter-demo</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>livk-spring-boot-starter</module>
+        <module>livk-spring-app</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

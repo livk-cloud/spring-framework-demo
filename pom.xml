@@ -11,6 +11,7 @@
     <modules>
         <module>spring-cloud-config-demo</module>
         <module>spring-common</module>
+        <module>spring-boot-starter-demo</module>
     </modules>
 
     <properties>
@@ -27,7 +28,7 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.7.13</version>
+            <version>5.7.14</version>
         </dependency>
     </dependencies>
 
