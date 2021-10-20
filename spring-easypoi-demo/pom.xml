@@ -9,12 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-config-demo</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>config-server</module>
-        <module>config-client</module>
-    </modules>
+    <artifactId>spring-easypoi-demo</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -23,8 +18,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.0.0-beta3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 

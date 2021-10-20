@@ -12,11 +12,16 @@
         <module>spring-cloud-config-demo</module>
         <module>spring-common</module>
         <module>spring-boot-starter-demo</module>
+        <module>spring-easypoi-demo</module>
+        <module>spring-websocket-distributed-demo</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <spring-boot.version>2.5.5</spring-boot.version>
+        <spring-cloud.version>2020.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
     </properties>
 
     <dependencies>
@@ -26,9 +31,8 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.7.14</version>
+            <groupId>com.livk</groupId>
+            <artifactId>spring-common</artifactId>
         </dependency>
     </dependencies>
 
@@ -37,7 +41,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.5.5</version>
+                <version>${spring-boot.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -45,9 +49,17 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2020.0.3</version>
+                <version>${spring-cloud.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <dependency>

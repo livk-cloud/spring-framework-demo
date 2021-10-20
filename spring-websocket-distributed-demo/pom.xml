@@ -9,11 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-config-demo</artifactId>
+    <artifactId>spring-websocket-distributed-demo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>config-server</module>
-        <module>config-client</module>
+        <module>spring-gateway</module>
+        <module>spring-websocket-demo</module>
+        <module>spring-websocket-copy</module>
     </modules>
 
     <properties>
@@ -26,6 +27,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
 </project>

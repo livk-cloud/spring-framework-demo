@@ -1,4 +1,7 @@
-logging:
-  level:
-    root: info
+#logging:
+#  level:
+#    root: info
 #  config: classpath*:logback-spring.xml
+
+
+cloud-version: ${spring-cloud.version}
