@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,6 +21,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class LivkPage<T> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private int pageNum;
@@ -30,8 +32,7 @@ public class LivkPage<T> implements Serializable {
 
     private LivkPage(List<T> list) {
         this.list = list;
-        if (list instanceof Page) {
-            Page<List<T>> page = (Page<List<T>>) list;
+        if (list instanceof Page<List<T>> page) {
             this.pageNum = page.getPageNum();
             this.pageSize = page.getPageSize();
             this.total = page.getTotal();

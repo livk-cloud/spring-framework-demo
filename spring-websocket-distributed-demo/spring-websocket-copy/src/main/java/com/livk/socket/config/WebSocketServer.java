@@ -49,7 +49,7 @@ public class WebSocketServer {
     @OnOpen
     public void onOpen(Session session, @PathParam("sid") String sid) throws IOException {
         this.session = session;
-        for (final WebSocketServer socketServer : websocketSet) {
+        for (final var socketServer : websocketSet) {
             if (socketServer.sid.equals(sid)) {
                 this.repeatLogin = true;
                 sendMessage("客户端" + sid + "已经登录！");
@@ -97,7 +97,7 @@ public class WebSocketServer {
 
     public static void sendMessage(String message, Set<String> toSids) {
         log.info("推送消息到客户端{}，推送内容：{}", toSids, message);
-        for (final WebSocketServer item : websocketSet) {
+        for (final var item : websocketSet) {
             try {
                 if (toSids.size() <= 0) {
                     item.sendMessage(message);
@@ -132,7 +132,7 @@ public class WebSocketServer {
 
     @Scheduled(cron = "0/5 * * * * ?")
     public void heartbeat() throws IOException {
-        for (WebSocketServer server : websocketSet) {
+        for (var server : websocketSet) {
             server.sendMessage("心跳检查");
         }
     }

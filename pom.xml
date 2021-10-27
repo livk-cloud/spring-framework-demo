@@ -15,6 +15,8 @@
         <module>spring-easypoi-demo</module>
         <module>spring-websocket-distributed-demo</module>
         <module>spring-quartz-demo</module>
+        <module>spring-elasticJob-demo</module>
+        <module>spring-authorization-demo</module>
     </modules>
 
     <properties>
@@ -23,17 +25,14 @@
         <spring-boot.version>2.5.6</spring-boot.version>
         <spring-cloud.version>2020.0.4</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <elasticjob.version>3.0.1</elasticjob.version>
+        <oauth2-authorization.version>0.2.0</oauth2-authorization.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.livk</groupId>
-            <artifactId>spring-common</artifactId>
         </dependency>
     </dependencies>
 
@@ -64,15 +63,27 @@
             </dependency>
 
             <dependency>
-                <groupId>com.livk</groupId>
-                <artifactId>spring-common</artifactId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
-
-            <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>1.4.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere.elasticjob</groupId>
+                <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
+                <version>${elasticjob.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-oauth2-authorization-server</artifactId>
+                <version>${oauth2-authorization.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.livk</groupId>
+                <artifactId>spring-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

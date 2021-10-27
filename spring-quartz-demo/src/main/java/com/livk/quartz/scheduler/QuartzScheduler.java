@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
 
 /**
  * <p>
@@ -22,7 +21,7 @@ public class QuartzScheduler implements Job {
     }
 
     @Override
-    public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+    public void execute(JobExecutionContext jobExecutionContext) {
         before();
         JobDataMap jobDataMap = jobExecutionContext.getJobDetail().getJobDataMap();
         log.info("{}", jobDataMap.get("user"));

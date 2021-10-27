@@ -1,0 +1,11 @@
+server:
+  port: 4488
+
+spring:
+  profiles:
+    active: test
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://livk.com:3306/livk_oauth?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false
+    username: root
+    password: 123456

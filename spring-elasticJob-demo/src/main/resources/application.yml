@@ -1,0 +1,19 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://livk.com:3306/elastic_job?useUnicode=true&characterEncoding=utf8&tinyInt1isBit=false&useSSL=false&serverTimezone=GMT+8
+    username: root
+    password: 123456
+
+elasticjob:
+  reg-center:
+    server-lists: livk.com:2181
+    namespace: job
+  jobs:
+    livkElasticJob:
+      elasticJobClass: com.livk.job.job.LivkElasticJob
+      cron: 0/5 * * * * ?
+      shardingTotalCount: 10

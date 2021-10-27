@@ -32,5 +32,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.livk</groupId>
+            <artifactId>spring-common</artifactId>
+        </dependency>
     </dependencies>
 </project>

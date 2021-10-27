@@ -22,7 +22,7 @@ public class LivkBanner implements Banner {
     }
 
     private static final String[] banner = {
-                      " ██       ██          ██         ██████   ██                       ██\n"
+            " ██       ██          ██         ██████   ██                       ██\n"
                     + "░██      ░░          ░██        ██░░░░██ ░██                      ░██\n"
                     + "░██       ██ ██    ██░██  ██   ██    ░░  ░██  ██████  ██   ██     ░██\n"
                     + "░██      ░██░██   ░██░██ ██   ░██        ░██ ██░░░░██░██  ░██  ██████\n"
@@ -34,13 +34,12 @@ public class LivkBanner implements Banner {
 
     @Override
     public void printBanner(Environment environment, Class<?> sourceClass, PrintStream out) {
-        for (String line : banner) {
+        for (var line : banner) {
             out.println(line);
         }
-        String version = SpringBootVersion.getVersion();
-        // 当前时间
+        var version = SpringBootVersion.getVersion();
         out.println("-----------------------Spring Boot Version:" + version + "----------------------");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        var dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         out.println("--------------------Current time：" + dateFormat.format(new Date()) + "-----------------");
         out.println("-------------------------Current JDK Version：" + System.getProperty("java.version") + "----------------------");
         out.println("----------------------Operating System：" + System.getProperty("os.name") + "--------------------");
