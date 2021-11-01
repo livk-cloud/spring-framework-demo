@@ -15,13 +15,14 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 @SpringBootConfiguration
 public class WebSocketConfig {
 
-    @Bean
-    public ServerEndpointExporter serverEndpointExporter() {
-        return new ServerEndpointExporter();
-    }
+	@Bean
+	public ServerEndpointExporter serverEndpointExporter() {
+		return new ServerEndpointExporter();
+	}
 
-    @Bean(initMethod = "init", destroyMethod = "destroy")
-    public WebSocketServer webSocketServer() {
-        return new WebSocketServer();
-    }
+	@Bean(initMethod = "init", destroyMethod = "destroy")
+	public WebSocketServer webSocketServer() {
+		return new WebSocketServer();
+	}
+
 }

@@ -13,7 +13,8 @@ import lombok.Data;
 @Data
 public class LivkBean {
 
-    private Integer id;
+	private Integer id;
 
-    private String name;
+	private String name;
+
 }

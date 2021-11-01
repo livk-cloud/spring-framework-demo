@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class QuartzApp {
-    public static void main(String[] args) {
-        LivkSpring.run(QuartzApp.class, args);
-    }
+
+	public static void main(String[] args) {
+		LivkSpring.run(QuartzApp.class, args);
+	}
+
 }

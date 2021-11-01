@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class SocketCopy {
-    public static void main(String[] args) {
-        LivkSpring.run(SocketCopy.class, args);
-    }
+
+	public static void main(String[] args) {
+		LivkSpring.run(SocketCopy.class, args);
+	}
+
 }

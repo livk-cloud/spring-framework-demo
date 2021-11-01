@@ -17,6 +17,8 @@
         <module>spring-quartz-demo</module>
         <module>spring-elasticJob-demo</module>
         <module>spring-authorization-demo</module>
+        <module>spring-security-demo</module>
+        <module>spring-cloud-bus-demo</module>
     </modules>
 
     <properties>
@@ -27,6 +29,11 @@
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <elasticjob.version>3.0.1</elasticjob.version>
         <oauth2-authorization.version>0.2.0</oauth2-authorization.version>
+        <puppycrawl-tools-checkstyle.version>8.43</puppycrawl-tools-checkstyle.version>
+
+        <maven-checkstyle-plugin.failsOnError>true</maven-checkstyle-plugin.failsOnError>
+        <maven-checkstyle-plugin.failsOnViolation>true</maven-checkstyle-plugin.failsOnViolation>
+        <maven-checkstyle-plugin.includeTestSourceDirectory>true</maven-checkstyle-plugin.includeTestSourceDirectory>
     </properties>
 
     <dependencies>
@@ -87,4 +94,28 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-maven-plugin</artifactId>
+                <version>0.0.29</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

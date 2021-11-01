@@ -17,4 +17,5 @@ import java.lang.annotation.*;
 @Inherited
 @Import(LivkDemo.class)
 public @interface EnableLivk {
+
 }

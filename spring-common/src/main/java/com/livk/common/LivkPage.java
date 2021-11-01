@@ -21,31 +21,36 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = false)
 public class LivkPage<T> implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+	@Serial
+	private static final long serialVersionUID = 1L;
 
-    private int pageNum;
-    private int pageSize;
-    private final long total;
+	private int pageNum;
 
-    private final List<T> list;
+	private int pageSize;
 
-    private LivkPage(List<T> list) {
-        this.list = list;
-        if (list instanceof Page<List<T>> page) {
-            this.pageNum = page.getPageNum();
-            this.pageSize = page.getPageSize();
-            this.total = page.getTotal();
-        } else {
-            this.total = list.size();
-        }
-    }
+	private final long total;
 
-    public static <T> LivkPage<T> of(List<T> list) {
-        return new LivkPage<>(list);
-    }
+	private final List<T> list;
 
-    public static void start(Integer pageNum, Integer pageSize) {
-        PageMethod.startPage(pageNum, pageSize);
-    }
+	private LivkPage(List<T> list) {
+		this.list = list;
+		if (list instanceof Page) {
+			Page<List<T>> page = (Page<List<T>>) list;
+			this.pageNum = page.getPageNum();
+			this.pageSize = page.getPageSize();
+			this.total = page.getTotal();
+		}
+		else {
+			this.total = list.size();
+		}
+	}
+
+	public static <T> LivkPage<T> of(List<T> list) {
+		return new LivkPage<>(list);
+	}
+
+	public static void start(Integer pageNum, Integer pageSize) {
+		PageMethod.startPage(pageNum, pageSize);
+	}
+
 }

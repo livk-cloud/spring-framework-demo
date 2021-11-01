@@ -1,19 +1,19 @@
-package com.livk.auth;
+package com.livk.client;
 
 import com.livk.common.LivkSpring;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * <p>
- * AuthorizationApp
+ * AuthorizationClient
  * </p>
  *
  * @author livk
- * @date 2021/10/26
+ * @date 2021/10/27
  */
 @SpringBootApplication
-public class AuthorizationApp {
+public class AuthorizationClient {
     public static void main(String[] args) {
-        LivkSpring.run(AuthorizationApp.class, args);
+        LivkSpring.run(AuthorizationClient.class, args);
     }
 }

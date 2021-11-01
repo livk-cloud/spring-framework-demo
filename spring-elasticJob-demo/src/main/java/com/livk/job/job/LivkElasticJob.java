@@ -16,8 +16,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class LivkElasticJob implements SimpleJob {
-    @Override
-    public void execute(ShardingContext shardingContext) {
-        log.info("{} {}", shardingContext.getShardingTotalCount(), shardingContext.getShardingItem());
-    }
+
+	@Override
+	public void execute(ShardingContext shardingContext) {
+		log.info("{} {}", shardingContext.getShardingTotalCount(), shardingContext.getShardingItem());
+	}
+
 }

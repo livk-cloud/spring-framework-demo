@@ -1,0 +1,7 @@
+#tFQTmXNaY5RjDRpxEfsY2lqarQ3xIEFLBiwrulrFKL67Lcunu9PNNgBUVyyu2p6f-m8ZQQH4ZMYfqwX-VVJBrKY83ZRpskTIR4Lb3dhayswBPX5hN-oN6T87k191cn2v
+
+
+POST localhost:9000/oauth/token?grant_type=password&username=admin&password=admin
+Content-Type: application/x-www-form-urlencoded
+
+

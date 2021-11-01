@@ -1,3 +1,0 @@
-GET localhost:4488/oauth2/authorize?client_id=csdn&response_type=code&redirect_uri=https://www.baidu.com&scope=user.userInfo user.userInfo
-
-##########

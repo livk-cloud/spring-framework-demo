@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class PoiApp {
-    public static void main(String[] args) {
-        LivkSpring.run(PoiApp.class, args);
-    }
+
+	public static void main(String[] args) {
+		LivkSpring.run(PoiApp.class, args);
+	}
+
 }

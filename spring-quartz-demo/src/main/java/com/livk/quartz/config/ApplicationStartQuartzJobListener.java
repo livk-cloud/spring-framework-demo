@@ -22,12 +22,13 @@ import org.springframework.lang.Nullable;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class ApplicationStartQuartzJobListener implements ApplicationListener<ContextRefreshedEvent> {
 
-    private final LivkQuartzScheduler livkQuartzScheduler;
+	private final LivkQuartzScheduler livkQuartzScheduler;
 
-    @SneakyThrows
-    @Override
-    public void onApplicationEvent(@Nullable ContextRefreshedEvent event) {
-        livkQuartzScheduler.startJob();
-        log.info("job is start！");
-    }
+	@SneakyThrows
+	@Override
+	public void onApplicationEvent(@Nullable ContextRefreshedEvent event) {
+		livkQuartzScheduler.startJob();
+		log.info("job is start！");
+	}
+
 }
