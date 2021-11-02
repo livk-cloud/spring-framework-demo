@@ -34,11 +34,5 @@
             <artifactId>spring-cloud-commons</artifactId>
             <scope>provided</scope>
         </dependency>
-
-        <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${puppycrawl-tools-checkstyle.version}</version>
-        </dependency>
     </dependencies>
 </project>
