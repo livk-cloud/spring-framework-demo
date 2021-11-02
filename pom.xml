@@ -19,6 +19,7 @@
         <module>spring-authorization-demo</module>
         <module>spring-security-demo</module>
         <module>spring-cloud-bus-demo</module>
+        <module>spring-sharding-jdbc-demo</module>
     </modules>
 
     <properties>
@@ -29,11 +30,9 @@
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <elasticjob.version>3.0.1</elasticjob.version>
         <oauth2-authorization.version>0.2.0</oauth2-authorization.version>
-        <puppycrawl-tools-checkstyle.version>8.43</puppycrawl-tools-checkstyle.version>
-
-        <maven-checkstyle-plugin.failsOnError>true</maven-checkstyle-plugin.failsOnError>
-        <maven-checkstyle-plugin.failsOnViolation>true</maven-checkstyle-plugin.failsOnViolation>
-        <maven-checkstyle-plugin.includeTestSourceDirectory>true</maven-checkstyle-plugin.includeTestSourceDirectory>
+        <pagehelper.version>1.4.0</pagehelper.version>
+        <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
+        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
     </properties>
 
     <dependencies>
@@ -72,7 +71,7 @@
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>1.4.0</version>
+                <version>${pagehelper.version}</version>
             </dependency>
 
             <dependency>
@@ -88,34 +87,28 @@
             </dependency>
 
             <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${sharding-jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-namespace</artifactId>
+                <version>${sharding-jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.livk</groupId>
                 <artifactId>spring-common</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.spring.javaformat</groupId>
-                <artifactId>spring-javaformat-maven-plugin</artifactId>
-                <version>0.0.29</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
-            </plugin>
-        </plugins>
-    </build>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>
