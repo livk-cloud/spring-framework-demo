@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: springdoc-openapi
+server:
+  port: 9945
+
+springdoc:
+  swagger-ui:
+    path: /doc.html
+#    doc-expansion: none
+#    display-request-duration: true
+#    show-extensions: true
+#    show-common-extensions: true
+#    disable-swagger-default-url: true
+  api-docs:
+    enabled: true
+    path: /livk/api-docs
+#    resolve-schema-properties: true
+#  writer-with-default-pretty-printer: true
+
