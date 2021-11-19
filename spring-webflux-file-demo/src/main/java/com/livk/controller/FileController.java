@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.io.FileInputStream;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -32,8 +31,7 @@ public class FileController {
     @PostMapping("/download")
     public Mono<Void> download(ServerHttpResponse response) {
         ClassPathResource classPathResource = new ClassPathResource("templates/device.xlsx");
-        FileInputStream fileInputStream = new FileInputStream(classPathResource.getFile());
-        Flux<DataBuffer> dataBufferFlux = DataBufferUtils.readByteChannel(fileInputStream::getChannel, new DefaultDataBufferFactory(), 4096);
+        Flux<DataBuffer> dataBufferFlux = DataBufferUtils.read(classPathResource, new DefaultDataBufferFactory(), 4096);
         ZeroCopyHttpOutputMessage zeroCopyHttpOutputMessage = (ZeroCopyHttpOutputMessage) response;
         HttpHeaders headers = zeroCopyHttpOutputMessage.getHeaders();
         headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=device.xlsx");
