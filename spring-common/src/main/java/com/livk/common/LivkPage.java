@@ -34,8 +34,7 @@ public class LivkPage<T> implements Serializable {
 
 	private LivkPage(List<T> list) {
 		this.list = list;
-		if (list instanceof Page) {
-			Page<List<T>> page = (Page<List<T>>) list;
+		if (list instanceof Page<T> page) {
 			this.pageNum = page.getPageNum();
 			this.pageSize = page.getPageSize();
 			this.total = page.getTotal();
