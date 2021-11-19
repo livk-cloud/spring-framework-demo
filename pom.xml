@@ -21,6 +21,7 @@
         <module>spring-cloud-bus-demo</module>
         <module>spring-sharding-jdbc-demo</module>
         <module>spring-springdoc-demo</module>
+        <module>spring-webflux-file-demo</module>
     </modules>
 
     <properties>
