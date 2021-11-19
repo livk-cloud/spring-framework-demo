@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 /**
  * <p>
@@ -34,7 +36,7 @@ public class FileController {
         Flux<DataBuffer> dataBufferFlux = DataBufferUtils.read(classPathResource, new DefaultDataBufferFactory(), 4096);
         ZeroCopyHttpOutputMessage zeroCopyHttpOutputMessage = (ZeroCopyHttpOutputMessage) response;
         HttpHeaders headers = zeroCopyHttpOutputMessage.getHeaders();
-        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=device.xlsx");
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + URLEncoder.encode(Objects.requireNonNull(classPathResource.getFilename()), StandardCharsets.UTF_8));
         MediaType mediaType = new MediaType("application", "vnd.ms-excel", StandardCharsets.UTF_8);
         headers.setContentType(mediaType);
         return zeroCopyHttpOutputMessage.writeWith(dataBufferFlux);
