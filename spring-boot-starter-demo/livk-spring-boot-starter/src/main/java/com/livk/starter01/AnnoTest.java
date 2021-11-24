@@ -11,7 +11,8 @@ package com.livk.starter01;
 @LivkComponent
 public class AnnoTest {
 
-    public void show() {
-        System.out.println(1);
-    }
+	public void show() {
+		System.out.println(1);
+	}
+
 }

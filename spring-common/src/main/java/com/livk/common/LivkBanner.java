@@ -23,65 +23,66 @@ import java.util.function.Function;
  */
 public class LivkBanner implements Banner {
 
-    private LivkBanner() {
-    }
+	private LivkBanner() {
+	}
 
-    private static final String[] banner = {
-            " ██       ██          ██         ██████   ██                       ██\n"
-            + "░██      ░░          ░██        ██░░░░██ ░██                      ░██\n"
-            + "░██       ██ ██    ██░██  ██   ██    ░░  ░██  ██████  ██   ██     ░██\n"
-            + "░██      ░██░██   ░██░██ ██   ░██        ░██ ██░░░░██░██  ░██  ██████\n"
-            + "░██      ░██░░██ ░██ ░████    ░██        ░██░██   ░██░██  ░██ ██░░░██\n"
-            + "░██      ░██ ░░████  ░██░██   ░░██    ██ ░██░██   ░██░██  ░██░██  ░██\n"
-            + "░████████░██  ░░██   ░██░░██   ░░██████  ███░░██████ ░░██████░░██████\n"
-            + "░░░░░░░░ ░░    ░░    ░░  ░░     ░░░░░░  ░░░  ░░░░░░   ░░░░░░  ░░░░░░ \n"};
+	private static final String[] banner = { " ██       ██          ██         ██████   ██                       ██\n"
+			+ "░██      ░░          ░██        ██░░░░██ ░██                      ░██\n"
+			+ "░██       ██ ██    ██░██  ██   ██    ░░  ░██  ██████  ██   ██     ░██\n"
+			+ "░██      ░██░██   ░██░██ ██   ░██        ░██ ██░░░░██░██  ░██  ██████\n"
+			+ "░██      ░██░░██ ░██ ░████    ░██        ░██░██   ░██░██  ░██ ██░░░██\n"
+			+ "░██      ░██ ░░████  ░██░██   ░░██    ██ ░██░██   ░██░██  ░██░██  ░██\n"
+			+ "░████████░██  ░░██   ░██░░██   ░░██████  ███░░██████ ░░██████░░██████\n"
+			+ "░░░░░░░░ ░░    ░░    ░░  ░░     ░░░░░░  ░░░  ░░░░░░   ░░░░░░  ░░░░░░ \n" };
 
-    @Override
-    public void printBanner(Environment environment, Class<?> sourceClass, PrintStream out) {
-        for (var line : banner) {
-            out.println(line);
-        }
-        var version = SpringBootVersion.getVersion();
-        Format format = Format.create(out, 70);
-        format.accept("Spring Boot Version:" + version);
-        var dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        format.accept("Current time：" + dateFormat.format(new Date()));
-        format.accept("Current JDK Version：" + System.getProperty("java.version"));
-        format.accept("Operating System：" + System.getProperty("os.name"));
-        out.flush();
-    }
+	@Override
+	public void printBanner(Environment environment, Class<?> sourceClass, PrintStream out) {
+		for (var line : banner) {
+			out.println(line);
+		}
+		var version = SpringBootVersion.getVersion();
+		Format format = Format.create(out, 70);
+		format.accept("Spring Boot Version:" + version);
+		var dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		format.accept("Current time：" + dateFormat.format(new Date()));
+		format.accept("Current JDK Version：" + System.getProperty("java.version"));
+		format.accept("Operating System：" + System.getProperty("os.name"));
+		out.flush();
+	}
 
-    public static LivkBanner create() {
-        return new LivkBanner();
-    }
+	public static LivkBanner create() {
+		return new LivkBanner();
+	}
 
-    @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-    private static class Format implements Function<String, String>, Consumer<String> {
+	@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+	private static class Format implements Function<String, String>, Consumer<String> {
 
-        private final int n;
+		private final int n;
 
-        private final PrintStream out;
+		private final PrintStream out;
 
-        private final char ch;
+		private final char ch;
 
-        @Override
-        public String apply(String str) {
-            int length = str.length();
-            if (length >= n) {
-                return str;
-            }
-            int index = (n - length) >> 1;
-            str = StringUtils.leftPad(str, length + index, ch);
-            return StringUtils.rightPad(str, n, ch);
-        }
+		@Override
+		public String apply(String str) {
+			int length = str.length();
+			if (length >= n) {
+				return str;
+			}
+			int index = (n - length) >> 1;
+			str = StringUtils.leftPad(str, length + index, ch);
+			return StringUtils.rightPad(str, n, ch);
+		}
 
-        @Override
-        public void accept(String s) {
-            out.println(this.apply(s));
-        }
+		@Override
+		public void accept(String s) {
+			out.println(this.apply(s));
+		}
 
-        public static Format create(PrintStream out, int n) {
-            return new Format(n, out,'*');
-        }
-    }
+		public static Format create(PrintStream out, int n) {
+			return new Format(n, out, '*');
+		}
+
+	}
+
 }

@@ -16,15 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class ConfigClient {
-    public static void main(String[] args) {
-        LivkSpring.run(ConfigClient.class, args);
-    }
 
-    @Value("${foo}")
-    String foo;
+	public static void main(String[] args) {
+		LivkSpring.run(ConfigClient.class, args);
+	}
 
-    @RequestMapping(value = "/foo")
-    public String hi() {
-        return foo;
-    }
+	@Value("${foo}")
+	String foo;
+
+	@RequestMapping(value = "/foo")
+	public String hi() {
+		return foo;
+	}
+
 }

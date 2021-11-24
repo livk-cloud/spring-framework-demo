@@ -22,12 +22,13 @@
         <module>spring-sharding-jdbc-demo</module>
         <module>spring-springdoc-demo</module>
         <module>spring-webflux-file-demo</module>
+        <module>spring-hateoas-demo</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>2.6.0-SNAPSHOT</spring-boot.version>
+        <spring-boot.version>2.6.0</spring-boot.version>
         <spring-cloud.version>2021.0.0-SNAPSHOT</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <elasticjob.version>3.0.1</elasticjob.version>
@@ -35,6 +36,7 @@
         <pagehelper.version>1.4.0</pagehelper.version>
         <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <spring.checkstyle.version>0.0.29</spring.checkstyle.version>
     </properties>
 
     <dependencies>
@@ -113,6 +115,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.spring.javaformat</groupId>
+                <artifactId>spring-javaformat-maven-plugin</artifactId>
+                <version>${spring.checkstyle.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>

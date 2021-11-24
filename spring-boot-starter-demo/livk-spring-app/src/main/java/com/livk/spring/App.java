@@ -22,24 +22,29 @@ import javax.annotation.PostConstruct;
 @EnableLivk
 @SpringBootApplication(scanBasePackages = "com.livk")
 public class App {
-    public static void main(String[] args) {
-        System.setProperty("server.port","9099");
-        LivkSpring.run(App.class, args);
-    }
+
+	public static void main(String[] args) {
+		System.setProperty("server.port", "9099");
+		LivkSpring.run(App.class, args);
+	}
+
 }
 
 @Component
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 class LivkTest {
 
-    private final LivkDemo livkDemo;
-    private final LivkTestDemo livkTestDemo;
-    private final AnnoTest annoTest;
+	private final LivkDemo livkDemo;
 
-    @PostConstruct
-    public void show() {
-        livkDemo.show();
-        livkTestDemo.show();
-        annoTest.show();
-    }
+	private final LivkTestDemo livkTestDemo;
+
+	private final AnnoTest annoTest;
+
+	@PostConstruct
+	public void show() {
+		livkDemo.show();
+		livkTestDemo.show();
+		annoTest.show();
+	}
+
 }
