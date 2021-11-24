@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class LivkFile {
-    public static void main(String[] args) {
-        LivkSpring.run(LivkFile.class, args);
-    }
+
+	public static void main(String[] args) {
+		LivkSpring.run(LivkFile.class, args);
+	}
+
 }

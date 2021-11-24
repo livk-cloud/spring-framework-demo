@@ -22,26 +22,24 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
-    @Bean
-    public WebClient webClient(OAuth2AuthorizedClientManager oAuth2AuthorizedClientManager) {
-        ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client =
-                new ServletOAuth2AuthorizedClientExchangeFilterFunction(oAuth2AuthorizedClientManager);
-        return WebClient.builder().apply(oauth2Client.oauth2Configuration()).build();
-    }
+	@Bean
+	public WebClient webClient(OAuth2AuthorizedClientManager oAuth2AuthorizedClientManager) {
+		ServletOAuth2AuthorizedClientExchangeFilterFunction oauth2Client = new ServletOAuth2AuthorizedClientExchangeFilterFunction(
+				oAuth2AuthorizedClientManager);
+		return WebClient.builder().apply(oauth2Client.oauth2Configuration()).build();
+	}
 
-    @Bean
-    public OAuth2AuthorizedClientManager oAuth2AuthorizedClientManager(
-            ClientRegistrationRepository clientRegistrationRepository,
-            OAuth2AuthorizedClientRepository authorizedClientRepository) {
-        OAuth2AuthorizedClientProvider authorizedClientProvider = OAuth2AuthorizedClientProviderBuilder.builder()
-                .authorizationCode()
-                .refreshToken()
-                .clientCredentials()
-                .build();
-        DefaultOAuth2AuthorizedClientManager authorizedClientManager = new DefaultOAuth2AuthorizedClientManager(
-                clientRegistrationRepository, authorizedClientRepository);
-        authorizedClientManager.setAuthorizedClientProvider(authorizedClientProvider);
+	@Bean
+	public OAuth2AuthorizedClientManager oAuth2AuthorizedClientManager(
+			ClientRegistrationRepository clientRegistrationRepository,
+			OAuth2AuthorizedClientRepository authorizedClientRepository) {
+		OAuth2AuthorizedClientProvider authorizedClientProvider = OAuth2AuthorizedClientProviderBuilder.builder()
+				.authorizationCode().refreshToken().clientCredentials().build();
+		DefaultOAuth2AuthorizedClientManager authorizedClientManager = new DefaultOAuth2AuthorizedClientManager(
+				clientRegistrationRepository, authorizedClientRepository);
+		authorizedClientManager.setAuthorizedClientProvider(authorizedClientProvider);
 
-        return authorizedClientManager;
-    }
+		return authorizedClientManager;
+	}
+
 }

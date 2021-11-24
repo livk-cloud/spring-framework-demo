@@ -18,6 +18,7 @@ import org.springframework.hateoas.RepresentationModel;
 @RequiredArgsConstructor(onConstructor_ = @JsonCreator)
 public class Greeting extends RepresentationModel<Greeting> {
 
-    @JsonProperty("content")
-    private final String content;
+	@JsonProperty("content")
+	private final String content;
+
 }

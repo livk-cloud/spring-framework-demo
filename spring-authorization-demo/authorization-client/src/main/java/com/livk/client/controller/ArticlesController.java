@@ -22,36 +22,28 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RestController
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class ArticlesController {
-    @Value("${resources.article-uri}")
-    private String resourceBaseUri;
 
-    private final WebClient webClient;
+	@Value("${resources.article-uri}")
+	private String resourceBaseUri;
 
-    @GetMapping(value = "/articles", params = "grant_type=authorization_code")
-    public String[] getArticles(
-            @RegisteredOAuth2AuthorizedClient("articles-client-authorization-code") OAuth2AuthorizedClient authorizedClient
-    ) {
+	private final WebClient webClient;
 
-        return this.webClient
-                .get()
-                .uri(resourceBaseUri)
-                .attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.oauth2AuthorizedClient(authorizedClient))
-                .retrieve()
-                .bodyToMono(String[].class)
-                .block();
-    }
+	@GetMapping(value = "/articles", params = "grant_type=authorization_code")
+	public String[] getArticles(
+			@RegisteredOAuth2AuthorizedClient("articles-client-authorization-code") OAuth2AuthorizedClient authorizedClient) {
 
+		return this.webClient.get().uri(resourceBaseUri)
+				.attributes(ServerOAuth2AuthorizedClientExchangeFilterFunction.oauth2AuthorizedClient(authorizedClient))
+				.retrieve().bodyToMono(String[].class).block();
+	}
 
-    @GetMapping(value = "/articles", params = "grant_type=client_credentials")
-    public String[] getArticles() {
+	@GetMapping(value = "/articles", params = "grant_type=client_credentials")
+	public String[] getArticles() {
 
-        return this.webClient
-                .get()
-                .uri(this.resourceBaseUri)
-                .attributes(ServletOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId("articles-client-client-credentials"))
-                .retrieve()
-                .bodyToMono(String[].class)
-                .block();
-    }
+		return this.webClient.get().uri(this.resourceBaseUri)
+				.attributes(ServletOAuth2AuthorizedClientExchangeFilterFunction
+						.clientRegistrationId("articles-client-client-credentials"))
+				.retrieve().bodyToMono(String[].class).block();
+	}
 
 }

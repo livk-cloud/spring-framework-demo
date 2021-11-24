@@ -17,15 +17,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests(authorizeRequests ->
-                        authorizeRequests.anyRequest().authenticated()
-                )
-                .oauth2Login(oauth2Login ->
-                        oauth2Login.loginPage("/oauth2/authorization/articles-client-oidc"))
-                .oauth2Client(Customizer.withDefaults());
-        return http.build();
-    }
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http.authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
+				.oauth2Login(oauth2Login -> oauth2Login.loginPage("/oauth2/authorization/articles-client-oidc"))
+				.oauth2Client(Customizer.withDefaults());
+		return http.build();
+	}
+
 }

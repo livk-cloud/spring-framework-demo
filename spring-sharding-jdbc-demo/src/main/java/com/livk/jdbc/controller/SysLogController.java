@@ -25,10 +25,12 @@ import java.util.Date;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class SysLogController {
 
-    private final SysLogService sysLogService;
+	private final SysLogService sysLogService;
 
-    @GetMapping
-    public ResponseEntity<?> list(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM") Date date) {
-        return ResponseEntity.ok(sysLogService.list(null));
-    }
+	@GetMapping
+	public ResponseEntity<?> list(
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM") Date date) {
+		return ResponseEntity.ok(sysLogService.list(null));
+	}
+
 }

@@ -16,15 +16,18 @@ import java.util.Collection;
  */
 @Slf4j
 public class LivkPreciseShardingAlgorithm implements PreciseShardingAlgorithm<String> {
-    @Override
-    public String doSharding(Collection<String> availableTargetNames, PreciseShardingValue<String> preciseShardingValue) {
-        String date = preciseShardingValue.getValue();
-        log.info("{}", date);
-        for (String tableName : availableTargetNames) {
-            if (tableName.endsWith(date)) {
-                return tableName;
-            }
-        }
-        throw new IllegalArgumentException();
-    }
+
+	@Override
+	public String doSharding(Collection<String> availableTargetNames,
+			PreciseShardingValue<String> preciseShardingValue) {
+		String date = preciseShardingValue.getValue();
+		log.info("{}", date);
+		for (String tableName : availableTargetNames) {
+			if (tableName.endsWith(date)) {
+				return tableName;
+			}
+		}
+		throw new IllegalArgumentException();
+	}
+
 }

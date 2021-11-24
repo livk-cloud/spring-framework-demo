@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class AuthorizationServer {
-    public static void main(String[] args) {
-        LivkSpring.run(AuthorizationServer.class, args);
-    }
+
+	public static void main(String[] args) {
+		LivkSpring.run(AuthorizationServer.class, args);
+	}
+
 }

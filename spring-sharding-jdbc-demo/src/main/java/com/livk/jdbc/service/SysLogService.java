@@ -12,4 +12,5 @@ import com.livk.jdbc.domain.SysLog;
  * @date 2021/11/2
  */
 public interface SysLogService extends IService<SysLog> {
+
 }

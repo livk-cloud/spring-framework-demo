@@ -19,18 +19,19 @@ import java.util.Map;
 @RequestMapping("bean")
 public class BeanController {
 
-    @GetMapping("str")
-    public String str() {
-        return "string";
-    }
+	@GetMapping("str")
+	public String str() {
+		return "string";
+	}
 
-    @GetMapping("list")
-    public List<Integer> list() {
-        return List.of(1, 2, 3, 4, 5, 6);
-    }
+	@GetMapping("list")
+	public List<Integer> list() {
+		return List.of(1, 2, 3, 4, 5, 6);
+	}
 
-    @GetMapping("map")
-    public Map<Object, Object> map() {
-        return Map.of("a", 1, "b", 2, "c", 3);
-    }
+	@GetMapping("map")
+	public Map<Object, Object> map() {
+		return Map.of("a", 1, "b", 2, "c", 3);
+	}
+
 }

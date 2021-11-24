@@ -28,30 +28,30 @@ import java.net.InetAddress;
 @Configuration
 public class OpenApiConfig {
 
-    @SneakyThrows
-    @Bean
-    public OpenAPI openAPI() {
-        Components components = new Components();
-        components
-                .addSecuritySchemes("bearer-key", new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT"))
-                .addSecuritySchemes("basicScheme", new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic"))
-                .addParameters("header", new Parameter().in("header").schema(new StringSchema()).name("header"))
-                .addParameters("myGlobalHeader", new HeaderParameter().required(true).name("My-Global-Header").description("My Global Header").schema(new StringSchema()).required(false));
+	@SneakyThrows
+	@Bean
+	public OpenAPI openAPI() {
+		Components components = new Components();
+		components
+				.addSecuritySchemes("bearer-key",
+						new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT"))
+				.addSecuritySchemes("basicScheme", new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic"))
+				.addParameters("header", new Parameter().in("header").schema(new StringSchema()).name("header"))
+				.addParameters("myGlobalHeader", new HeaderParameter().required(true).name("My-Global-Header")
+						.description("My Global Header").schema(new StringSchema()).required(false));
 
-        Server server = new Server();
-        server.setUrl("http://"+InetAddress.getLocalHost().getHostAddress());
+		Server server = new Server();
+		server.setUrl("http://" + InetAddress.getLocalHost().getHostAddress());
 
-        return new OpenAPI()
-                .components(components)
-                //如果配置此项，需要添加跨域
-//                .servers(List.of(server))
-                .info(new Info()
-                        .title("Livk Api Doc")
-                        .description("Api Doc")
-                        .version("0.0.1 \nSpringBoot Version" + SpringBootVersion.getVersion())
-                        .license(new License().name("Apache 2.0").url("https://www.apache.org/licenses/LICENSE-2.0.html")))
-                .externalDocs(new ExternalDocumentation()
-                        .description("Livk Full Documentation")
-                        .url("https://springdoc.org/"));
-    }
+		return new OpenAPI().components(components)
+				// 如果配置此项，需要添加跨域
+				// .servers(List.of(server))
+				.info(new Info().title("Livk Api Doc").description("Api Doc")
+						.version("0.0.1 \nSpringBoot Version" + SpringBootVersion.getVersion())
+						.license(new License().name("Apache 2.0")
+								.url("https://www.apache.org/licenses/LICENSE-2.0.html")))
+				.externalDocs(new ExternalDocumentation().description("Livk Full Documentation")
+						.url("https://springdoc.org/"));
+	}
+
 }

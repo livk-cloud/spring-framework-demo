@@ -41,80 +41,72 @@ import java.util.UUID;
 @Configuration(proxyBeanMethods = false)
 public class AuthorizationServerConfig {
 
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
-        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
-        return http.formLogin(Customizer.withDefaults()).build();
-    }
+	@Bean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
+	public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http) throws Exception {
+		OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+		return http.formLogin(Customizer.withDefaults()).build();
+	}
 
-    @Bean
-    public RegisteredClientRepository registeredClientRepository() {
-        RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("articles-client")
-                .clientSecret("{noop}secret")
-                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                .authorizationGrantTypes(authorizationGrantTypes ->
-                        authorizationGrantTypes.addAll(Arrays.asList(
-                                AuthorizationGrantType.AUTHORIZATION_CODE,
-                                AuthorizationGrantType.REFRESH_TOKEN,
-                                AuthorizationGrantType.CLIENT_CREDENTIALS,
-                                AuthorizationGrantType.PASSWORD)))
-                .redirectUris(redirectUris ->
-                        redirectUris.addAll(List.of(
-//                                "http://127.0.0.1:8086/login/oauth2/code/articles-client-oidc",
-//                                "https://www.baidu.com"
-                                "http://127.0.0.1:8086/authorized"
-                        )))
-                .scopes(scopes -> scopes.addAll(Arrays.asList(OidcScopes.OPENID, "articles.read")))
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
-                .build();
-        return new InMemoryRegisteredClientRepository(registeredClient);
-    }
+	@Bean
+	public RegisteredClientRepository registeredClientRepository() {
+		RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
+				.clientId("articles-client").clientSecret("{noop}secret")
+				.clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+				.authorizationGrantTypes(authorizationGrantTypes -> authorizationGrantTypes.addAll(
+						Arrays.asList(AuthorizationGrantType.AUTHORIZATION_CODE, AuthorizationGrantType.REFRESH_TOKEN,
+								AuthorizationGrantType.CLIENT_CREDENTIALS, AuthorizationGrantType.PASSWORD)))
+				.redirectUris(redirectUris -> redirectUris.addAll(List.of(
+						// "http://127.0.0.1:8086/login/oauth2/code/articles-client-oidc",
+						// "https://www.baidu.com"
+						"http://127.0.0.1:8086/authorized")))
+				.scopes(scopes -> scopes.addAll(Arrays.asList(OidcScopes.OPENID, "articles.read")))
+				.clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build()).build();
+		return new InMemoryRegisteredClientRepository(registeredClient);
+	}
 
-    @Bean
-    public JWKSource<SecurityContext> jwkSource() {
-        RSAKey rsaKey = Jwks.generateRsa();
-        JWKSet jwkSet = new JWKSet(rsaKey);
-        return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
-    }
+	@Bean
+	public JWKSource<SecurityContext> jwkSource() {
+		RSAKey rsaKey = Jwks.generateRsa();
+		JWKSet jwkSet = new JWKSet(rsaKey);
+		return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
+	}
 
-    @Bean
-    public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
-        return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
-    }
+	@Bean
+	public JwtDecoder jwtDecoder(JWKSource<SecurityContext> jwkSource) {
+		return OAuth2AuthorizationServerConfiguration.jwtDecoder(jwkSource);
+	}
 
-    @Bean
-    public ProviderSettings providerSettings() {
-        return ProviderSettings.builder()
-                .tokenEndpoint("/oauth2/token")
-                .issuer("http://localhost:9000").build();
-    }
+	@Bean
+	public ProviderSettings providerSettings() {
+		return ProviderSettings.builder().tokenEndpoint("/oauth2/token").issuer("http://localhost:9000").build();
+	}
 
-    final static class Jwks {
-        private Jwks() {
-        }
+	final static class Jwks {
 
-        public static RSAKey generateRsa() {
-            KeyPair keyPair = generateRsaKey();
-            RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-            RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
-            return new RSAKey.Builder(publicKey)
-                    .privateKey(privateKey)
-                    .keyID(UUID.randomUUID().toString())
-                    .build();
-        }
+		private Jwks() {
+		}
 
-        private static KeyPair generateRsaKey() {
-            KeyPair keyPair;
-            try {
-                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-                keyPairGenerator.initialize(2048);
-                keyPair = keyPairGenerator.generateKeyPair();
-            } catch (Exception ex) {
-                throw new IllegalStateException(ex);
-            }
-            return keyPair;
-        }
-    }
+		public static RSAKey generateRsa() {
+			KeyPair keyPair = generateRsaKey();
+			RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+			RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+			return new RSAKey.Builder(publicKey).privateKey(privateKey).keyID(UUID.randomUUID().toString()).build();
+		}
+
+		private static KeyPair generateRsaKey() {
+			KeyPair keyPair;
+			try {
+				KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+				keyPairGenerator.initialize(2048);
+				keyPair = keyPairGenerator.generateKeyPair();
+			}
+			catch (Exception ex) {
+				throw new IllegalStateException(ex);
+			}
+			return keyPair;
+		}
+
+	}
+
 }

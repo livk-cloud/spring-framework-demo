@@ -23,24 +23,22 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class DefaultSecurityConfig {
 
-    @Bean
-    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-        return http.authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
-                .formLogin(Customizer.withDefaults()).build();
-    }
+	@Bean
+	public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+		return http.authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
+				.formLogin(Customizer.withDefaults()).build();
+	}
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails userDetails = User.builder()
-                .username("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(userDetails);
-    }
+	@Bean
+	public UserDetailsService userDetailsService() {
+		UserDetails userDetails = User.builder().username("admin").password(passwordEncoder().encode("admin"))
+				.roles("USER").build();
+		return new InMemoryUserDetailsManager(userDetails);
+	}
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
 }
