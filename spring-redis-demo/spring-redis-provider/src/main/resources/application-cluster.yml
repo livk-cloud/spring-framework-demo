@@ -1,7 +1,10 @@
 spring:
   redis:
-    host: livk.com
     password: 123456
+    cluster:
+      nodes:
+        - livk.com:6379
+        - livk1.com:6379
     lettuce:
       pool:
         max-active: 1024

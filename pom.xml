@@ -23,6 +23,7 @@
         <module>spring-springdoc-demo</module>
         <module>spring-webflux-file-demo</module>
         <module>spring-hateoas-demo</module>
+        <module>spring-redis-demo</module>
     </modules>
 
     <properties>
@@ -134,6 +135,12 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+        </repository>
+
+        <repository>
+            <id>spring-release</id>
+            <name>Spring release</name>
+            <url>https://repo.spring.io/release</url>
         </repository>
     </repositories>
 </project>

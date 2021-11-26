@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-redis-demo</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-redis-common</module>
+        <module>spring-redis-provider</module>
+        <module>spring-redis-consumer</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
