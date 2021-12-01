@@ -17,7 +17,6 @@
         <module>spring-quartz-demo</module>
         <module>spring-elasticJob-demo</module>
         <module>spring-authorization-demo</module>
-        <module>spring-security-demo</module>
         <module>spring-cloud-bus-demo</module>
         <module>spring-sharding-jdbc-demo</module>
         <module>spring-springdoc-demo</module>
@@ -29,7 +28,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>2.6.0</spring-boot.version>
+        <spring-boot.version>2.6.1</spring-boot.version>
         <spring-cloud.version>2021.0.0-SNAPSHOT</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <elasticjob.version>3.0.1</elasticjob.version>

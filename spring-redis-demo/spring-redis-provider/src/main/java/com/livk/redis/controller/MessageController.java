@@ -4,7 +4,6 @@ import com.livk.common.redis.domain.LivkMessage;
 import com.livk.common.redis.supprot.LivkRedisTemplate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
@@ -20,7 +19,6 @@ import java.util.Map;
  * @date 2021/11/26
  */
 @Slf4j
-@Aspect
 @RestController
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 public class MessageController {
