@@ -23,13 +23,14 @@
         <module>spring-webflux-file-demo</module>
         <module>spring-hateoas-demo</module>
         <module>spring-redis-demo</module>
+        <module>spring-cloud-function-demo</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <spring-boot.version>2.6.1</spring-boot.version>
-        <spring-cloud.version>2021.0.0-SNAPSHOT</spring-cloud.version>
+        <spring-cloud.version>2021.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <elasticjob.version>3.0.1</elasticjob.version>
         <oauth2-authorization.version>0.2.0</oauth2-authorization.version>
