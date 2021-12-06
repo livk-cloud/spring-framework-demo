@@ -3,7 +3,7 @@
 > SpringBoot与各种框架等集成<br>
 > 包含着一些常见或者需要使用的技术栈的Demo
 
-> [SpringBoot SPI、跨jar包导入IOC](./spring-boot-starter-demo)<br>
+> [SpringBoot自动装配](./spring-boot-starter-demo)<br>
 > [SpringCloud Bus跨服务发布Event](./spring-cloud-bus-demo)<br>
 > [SpringCloud Config配置存储Mysql](./spring-cloud-config-demo)<br>
 > [SpringAuthorizationServer集成](./spring-authorization-demo)<br>
