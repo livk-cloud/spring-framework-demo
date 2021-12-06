@@ -1,0 +1,12 @@
+spring:
+  redis:
+    host: livk.com
+    password: 123456
+  application:
+    name: @artifactId@
+  cloud:
+    nacos:
+      discovery:
+        server-addr: livk.com:8848
+server:
+  port: 8661

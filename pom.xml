@@ -25,6 +25,7 @@
         <module>spring-redis-demo</module>
         <module>spring-cloud-function-demo</module>
         <module>spring-r2dbc-demo</module>
+        <module>spring-cloud-openfeign-demo</module>
     </modules>
 
     <properties>
@@ -119,6 +120,12 @@
     </dependencyManagement>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>io.spring.javaformat</groupId>
@@ -127,6 +134,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!-- 环境标识，需要与配置文件的名称相对应 -->
+                <profiles.active>dev</profiles.active>
+            </properties>
+            <activation>
+                <!-- 默认环境 -->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 
     <repositories>
         <repository>
