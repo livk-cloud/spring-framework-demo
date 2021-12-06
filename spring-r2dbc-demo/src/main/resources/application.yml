@@ -1,0 +1,9 @@
+livk:
+  postgresql:
+    host: livk.com
+    port: 5432
+    username: postgres
+    password: 123456
+    database: spring_livk
+server:
+  port: 9663

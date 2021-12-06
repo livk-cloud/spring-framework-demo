@@ -24,6 +24,7 @@
         <module>spring-hateoas-demo</module>
         <module>spring-redis-demo</module>
         <module>spring-cloud-function-demo</module>
+        <module>spring-r2dbc-demo</module>
     </modules>
 
     <properties>
