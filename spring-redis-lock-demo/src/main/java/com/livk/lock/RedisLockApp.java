@@ -1,21 +1,19 @@
-package com.livk.provider.biz;
+package com.livk.lock;
 
 import com.livk.common.LivkSpring;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * <p>
- * ProviderApp
+ * RedisLockApp
  * </p>
  *
  * @author livk
  * @date 2021/12/6
  */
-@EnableCaching
 @SpringBootApplication
-public class ProviderApp {
+public class RedisLockApp {
     public static void main(String[] args) {
-        LivkSpring.run(ProviderApp.class, args);
+        LivkSpring.run(RedisLockApp.class, args);
     }
 }

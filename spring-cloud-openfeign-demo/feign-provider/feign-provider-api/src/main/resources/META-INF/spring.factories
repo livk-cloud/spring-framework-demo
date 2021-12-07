@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.livk.provider.api.feign.factory.UserRemoteServiceFallbackFactory
+  com.livk.provider.api.OpenFeignConfig

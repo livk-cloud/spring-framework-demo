@@ -4,6 +4,9 @@ spring:
     url: jdbc:mysql://livk.com:3306/security_demo?serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+  redis:
+    host: livk.com
+    password: 123456
   application:
     name: @artifactId@
   cloud:

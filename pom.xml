@@ -26,6 +26,7 @@
         <module>spring-cloud-function-demo</module>
         <module>spring-r2dbc-demo</module>
         <module>spring-cloud-openfeign-demo</module>
+        <module>spring-redis-lock-demo</module>
     </modules>
 
     <properties>
