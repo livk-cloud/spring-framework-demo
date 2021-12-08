@@ -20,7 +20,6 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
-            <version>3.0.0-beta3</version>
         </dependency>
 
         <dependency>

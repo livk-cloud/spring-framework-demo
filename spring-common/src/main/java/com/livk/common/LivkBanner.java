@@ -42,11 +42,11 @@ public class LivkBanner implements Banner {
 		}
 		var version = SpringBootVersion.getVersion();
 		Format format = Format.create(out, 70);
-		format.accept("Spring Boot Version:" + version);
+		format.accept("Spring Boot Version: " + version);
 		var dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		format.accept("Current time：" + dateFormat.format(new Date()));
-		format.accept("Current JDK Version：" + System.getProperty("java.version"));
-		format.accept("Operating System：" + System.getProperty("os.name"));
+		format.accept("Current time: " + dateFormat.format(new Date()));
+		format.accept("Current JDK Version: " + System.getProperty("java.version"));
+		format.accept("Operating System: " + System.getProperty("os.name"));
 		out.flush();
 	}
 

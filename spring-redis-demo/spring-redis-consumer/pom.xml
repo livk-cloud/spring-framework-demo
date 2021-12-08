@@ -20,7 +20,6 @@
         <dependency>
             <groupId>com.livk</groupId>
             <artifactId>spring-redis-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>

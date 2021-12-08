@@ -20,7 +20,6 @@
         <dependency>
             <groupId>com.livk</groupId>
             <artifactId>feign-provider-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>

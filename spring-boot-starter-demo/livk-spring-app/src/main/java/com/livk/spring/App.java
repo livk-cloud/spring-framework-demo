@@ -6,7 +6,6 @@ import com.livk.starter01.EnableLivk;
 import com.livk.starter01.LivkDemo;
 import com.livk.starter01.LivkTestDemo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
@@ -31,7 +30,7 @@ public class App {
 }
 
 @Component
-@RequiredArgsConstructor(onConstructor_ = @Autowired)
+@RequiredArgsConstructor
 class LivkTest {
 
 	private final LivkDemo livkDemo;

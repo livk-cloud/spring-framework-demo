@@ -31,7 +31,9 @@ public class DefaultSecurityConfig {
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		UserDetails userDetails = User.builder().username("admin").password(passwordEncoder().encode("admin"))
+		UserDetails userDetails = User.builder()
+				.username("admin")
+				.password(passwordEncoder().encode("admin"))
 				.roles("USER").build();
 		return new InMemoryUserDetailsManager(userDetails);
 	}

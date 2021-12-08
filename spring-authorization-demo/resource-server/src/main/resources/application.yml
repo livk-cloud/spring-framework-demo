@@ -16,4 +16,4 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: "${authorization-server}/oauth2/jwks"
-#          issuer-uri: http://localhost:9000
+          issuer-uri: http://127.0.0.1:9000

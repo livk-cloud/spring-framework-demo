@@ -4,7 +4,6 @@ import com.livk.quartz.config.LivkQuartzScheduler;
 import com.livk.quartz.scheduler.QuartzScheduler;
 import lombok.RequiredArgsConstructor;
 import org.quartz.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2021/10/25
  */
 @RestController
-@RequiredArgsConstructor(onConstructor_ = @Autowired)
+@RequiredArgsConstructor
 public class QuartzController {
 
 	private final Scheduler scheduler;

@@ -3,7 +3,6 @@ package com.livk.quartz.config;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -19,7 +18,7 @@ import org.springframework.lang.Nullable;
  */
 @Slf4j
 @Configuration
-@RequiredArgsConstructor(onConstructor_ = @Autowired)
+@RequiredArgsConstructor
 public class ApplicationStartQuartzJobListener implements ApplicationListener<ContextRefreshedEvent> {
 
 	private final LivkQuartzScheduler livkQuartzScheduler;

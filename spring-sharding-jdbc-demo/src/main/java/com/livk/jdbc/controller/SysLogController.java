@@ -2,7 +2,6 @@ package com.livk.jdbc.controller;
 
 import com.livk.jdbc.service.SysLogService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +21,7 @@ import java.util.Date;
  */
 @RestController
 @RequestMapping("/sys/log")
-@RequiredArgsConstructor(onConstructor_ = @Autowired)
+@RequiredArgsConstructor
 public class SysLogController {
 
 	private final SysLogService sysLogService;

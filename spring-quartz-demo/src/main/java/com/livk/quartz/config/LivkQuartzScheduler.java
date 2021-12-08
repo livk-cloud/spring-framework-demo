@@ -2,7 +2,6 @@ package com.livk.quartz.config;
 
 import lombok.RequiredArgsConstructor;
 import org.quartz.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Date;
@@ -16,7 +15,7 @@ import java.util.Date;
  * @date 2021/10/25
  */
 @Configuration
-@RequiredArgsConstructor(onConstructor_ = @Autowired)
+@RequiredArgsConstructor
 public class LivkQuartzScheduler {
 
 	private final Scheduler scheduler;

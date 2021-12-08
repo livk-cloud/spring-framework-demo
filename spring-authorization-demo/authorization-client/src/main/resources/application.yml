@@ -8,44 +8,42 @@ logging:
     org.springframework.security: INFO
     org.springframework.security.oauth2: INFO
 
-authorization-server: http://localhost:9000
-
 spring:
   security:
     oauth2:
       client:
         registration:
-          articles-client-oidc:
+          livk-client-oidc:
             provider: spring
-            client-id: articles-client
+            client-id: livk-client
             client-secret: secret
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope: openid
-            client-name: articles-client-oidc
-          articles-client-authorization-code:
+            client-name: livk-client-oidc
+          livk-client-authorization-code:
             provider: spring
-            client-id: articles-client
+            client-id: livk-client
             client-secret: secret
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/authorized"
-            scope: articles.read
-            client-name: articles-client-authorization-code
-          articles-client-client-credentials:
+            scope: message.read,message.write
+            client-name: livk-client-authorization-code
+          livk-client-client-credentials:
             provider: spring
-            client-id: articles-client
+            client-id: livk-client
             client-secret: secret
             authorization-grant-type: client_credentials
-            scope: articles.read
-            client-name: articles-client-client-credentials
+            scope: message.read
+            client-name: livk-client-client-credentials
         provider:
           spring:
-            #            issuer-uri: http://localhost:9000
-            authorization-uri: "${authorization-server}/oauth2/authorize"
-            token-uri: "${authorization-server}/oauth2/token"
+            issuer-uri: http://127.0.0.1:9000
+            authorization-uri: "${spring.security.oauth2.client.provider.spring.issuer-uri}/oauth2/authorize"
+            token-uri: "${spring.security.oauth2.client.provider.spring.issuer-uri}/oauth2/token"
             user-info-uri: null
             user-name-attribute-name: "sub"
-            jwk-set-uri: "${authorization-server}/oauth2/jwks"
+            jwk-set-uri: "${spring.security.oauth2.client.provider.spring.issuer-uri}/oauth2/jwks"
 
 resources:
   article-server: http://127.0.0.1:8088

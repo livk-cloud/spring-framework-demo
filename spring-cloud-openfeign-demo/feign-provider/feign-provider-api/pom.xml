@@ -45,7 +45,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus</artifactId>
-            <version>3.4.3.4</version>
         </dependency>
 
         <dependency>

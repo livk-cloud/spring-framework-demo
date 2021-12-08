@@ -20,7 +20,6 @@
         <dependency>
             <groupId>com.livk</groupId>
             <artifactId>livk-spring-boot-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
