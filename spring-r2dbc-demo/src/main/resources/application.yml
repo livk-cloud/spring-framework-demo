@@ -7,3 +7,8 @@ livk:
     database: spring_livk
 server:
   port: 9663
+spring:
+  application:
+    name: @artifactId@
+  profiles:
+    active: @profiles.active@
