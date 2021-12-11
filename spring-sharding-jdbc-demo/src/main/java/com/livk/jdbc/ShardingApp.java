@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ShardingApp {
 
 	public static void main(String[] args) {
-		LivkSpring.run(ShardingApp.class, args);
+		LivkSpring.runServlet(ShardingApp.class, args);
 	}
 
 }

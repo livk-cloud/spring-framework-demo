@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringDoc {
 
 	public static void main(String[] args) {
-		LivkSpring.run(SpringDoc.class, args);
+		LivkSpring.runServlet(SpringDoc.class, args);
 	}
 
 }

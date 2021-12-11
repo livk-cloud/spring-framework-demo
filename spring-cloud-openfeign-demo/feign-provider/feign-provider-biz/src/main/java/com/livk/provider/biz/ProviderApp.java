@@ -16,6 +16,6 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication
 public class ProviderApp {
     public static void main(String[] args) {
-        LivkSpring.run(ProviderApp.class, args);
+        LivkSpring.runServlet(ProviderApp.class, args);
     }
 }

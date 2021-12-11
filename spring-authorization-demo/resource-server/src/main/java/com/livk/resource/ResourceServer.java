@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ResourceServer {
 
 	public static void main(String[] args) {
-		LivkSpring.run(ResourceServer.class, args);
+		LivkSpring.runServlet(ResourceServer.class, args);
 	}
 
 }

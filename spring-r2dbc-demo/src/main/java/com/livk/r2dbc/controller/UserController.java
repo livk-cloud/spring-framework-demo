@@ -3,6 +3,7 @@ package com.livk.r2dbc.controller;
 import com.livk.r2dbc.domain.User;
 import com.livk.r2dbc.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.Objects;
  * @author livk
  * @date 2021/12/6
  */
+@Slf4j
 @RestController
 @RequestMapping("user")
 @RequiredArgsConstructor
@@ -46,12 +48,9 @@ public class UserController {
     @PutMapping("/{id}")
     public HttpEntity<Mono<Void>> update(@PathVariable("id") Long id,
                                          @RequestBody Mono<User> userMono) {
-        return ResponseEntity.ok(userRepository.findById(id).flatMap(u -> Objects.nonNull(u) ?
-                userMono.map(user -> new User(id, user.username(), user.password()))
-                        .flatMap(user -> userRepository.save(user)
-                                .flatMap(user1 -> Objects.nonNull(user1.id()) ? Mono.empty() : Mono.defer(
-                                        () -> Mono.error(new RuntimeException())))) :
-                Mono.defer(() -> Mono.error(new RuntimeException()))));
+        return ResponseEntity.ok(userMono.flatMap(monoUser -> userRepository.findById(id)
+                .switchIfEmpty(Mono.error(new RuntimeException("Id Not Found!")))
+                .flatMap(user -> userRepository.save(new User(user.id(), monoUser.username(), monoUser.password())).then())));
     }
 
     @DeleteMapping("/{id}")

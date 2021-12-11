@@ -14,6 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RedisLockApp {
     public static void main(String[] args) {
-        LivkSpring.run(RedisLockApp.class, args);
+        LivkSpring.runServlet(RedisLockApp.class, args);
     }
 }

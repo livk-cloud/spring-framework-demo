@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Gateway {
 
 	public static void main(String[] args) {
-		LivkSpring.run(Gateway.class, args);
+		LivkSpring.runReactive(Gateway.class, args);
 	}
 
 }

@@ -15,7 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JobApp {
 
 	public static void main(String[] args) {
-		LivkSpring.run(JobApp.class, args);
+		LivkSpring.runServlet(JobApp.class, args);
 	}
 
 }

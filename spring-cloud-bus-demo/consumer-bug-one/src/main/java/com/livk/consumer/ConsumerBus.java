@@ -17,7 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ConsumerBus {
 
 	public static void main(String[] args) {
-		LivkSpring.run(ConsumerBus.class, args);
+		LivkSpring.runServlet(ConsumerBus.class, args);
 	}
 
 }

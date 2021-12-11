@@ -19,6 +19,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 public class ConsumerApp {
     public static void main(String[] args) {
-        LivkSpring.run(ConsumerApp.class, args);
+        LivkSpring.runServlet(ConsumerApp.class, args);
     }
 }
