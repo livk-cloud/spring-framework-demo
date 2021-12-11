@@ -41,9 +41,8 @@ public class LivkSpring {
     @SneakyThrows
     private static <T> void print(ApplicationContext context, Class<T> targetClass) {
         var logger = LoggerFactory.getLogger(targetClass);
-        var port = context.getEnvironment().getProperty("server.port");
-        logger.info(HTTP_PREFIX.concat("://{}:{}"), InetAddress.getLocalHost().getHostAddress(),
-                port == null ? "8080" : port);
+        var port = context.getEnvironment().getProperty("server.port", "8080");
+        logger.info(HTTP_PREFIX.concat("://{}:{}"), InetAddress.getLocalHost().getHostAddress(), port);
     }
 
 }
