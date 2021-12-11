@@ -1,13 +1,13 @@
 package com.livk.socket.config;
 
+import jakarta.websocket.*;
+import jakarta.websocket.server.PathParam;
+import jakarta.websocket.server.ServerEndpoint;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 
-import javax.websocket.*;
-import javax.websocket.server.PathParam;
-import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -103,7 +103,7 @@ public class WebSocketServer {
 		log.info("推送消息到客户端{}，推送内容：{}", toSids, message);
 		for (final var item : websocketSet) {
 			try {
-				if (toSids.size() <= 0) {
+				if (toSids.isEmpty()) {
 					item.sendMessage(message);
 				}
 				else if (toSids.contains(item.sid)) {

@@ -32,7 +32,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>2.6.1</spring-boot.version>
+        <spring-boot.version>3.0.0-SNAPSHOT</spring-boot.version>
         <spring-cloud.version>2021.0.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
         <elasticjob.version>3.0.1</elasticjob.version>
