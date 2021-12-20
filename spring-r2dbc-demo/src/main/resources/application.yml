@@ -1,10 +1,3 @@
-livk:
-  postgresql:
-    host: livk.com
-    port: 5432
-    username: postgres
-    password: 123456
-    database: spring_livk
 server:
   port: 9663
 spring:
@@ -12,3 +5,7 @@ spring:
     name: @artifactId@
   profiles:
     active: @profiles.active@
+  r2dbc:
+    url: r2dbc:postgres://livk.com:5432/spring_livk
+    username: postgres
+    password: 123456
