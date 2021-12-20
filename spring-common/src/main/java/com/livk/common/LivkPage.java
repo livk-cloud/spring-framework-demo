@@ -1,7 +1,6 @@
 package com.livk.common;
 
 import com.github.pagehelper.Page;
-import com.github.pagehelper.page.PageMethod;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -44,12 +43,7 @@ public class LivkPage<T> implements Serializable {
 		}
 	}
 
-	public static <T> LivkPage<T> of(List<T> list) {
-		return new LivkPage<>(list);
-	}
-
-	public static void start(Integer pageNum, Integer pageSize) {
-		PageMethod.startPage(pageNum, pageSize);
-	}
-
+    public static <T> LivkPage<T> of(List<T> list) {
+        return new LivkPage<>(list);
+    }
 }
