@@ -1,7 +1,5 @@
 package com.livk.common;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.Banner;
@@ -11,6 +9,8 @@ import org.springframework.core.env.Environment;
 import java.io.PrintStream;
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -30,8 +30,7 @@ public class LivkBanner implements Banner {
     private LivkBanner() {
     }
 
-    private static final String[] banner = {
-            """
+    private static final String[] banner = {"""
  ██       ██          ██         ██████   ██                       ██
 ░██      ░░          ░██        ██░░░░██ ░██                      ░██
 ░██       ██ ██    ██░██  ██   ██    ░░  ░██  ██████  ██   ██     ░██
@@ -48,11 +47,9 @@ public class LivkBanner implements Banner {
         for (var line : banner) {
             out.println(line);
         }
-        var version = SpringBootVersion.getVersion();
         var format = Format.create(out, 70);
-        format.accept("Spring Boot Version: " + version);
-        var dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        format.accept("Current time: " + dateFormat.format(new Date()));
+        format.accept("Spring Boot Version: " + SpringBootVersion.getVersion());
+        format.accept("Current time: " + DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now()));
         format.accept("Current JDK Version: " + System.getProperty("java.version"));
         format.accept("Operating System: " + System.getProperty("os.name"));
         var port = environment.getProperty("server.port", "8080");
@@ -64,15 +61,7 @@ public class LivkBanner implements Banner {
         return new LivkBanner();
     }
 
-    @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-    private static class Format implements Function<String, String>, Consumer<String> {
-
-        private final int n;
-
-        private final PrintStream out;
-
-        private final char ch;
-
+    private record Format(int n, PrintStream out, char ch) implements Function<String, String>, Consumer<String> {
         @Override
         public String apply(String str) {
             int length = str.length();
@@ -92,7 +81,6 @@ public class LivkBanner implements Banner {
         public static Format create(PrintStream out, int n) {
             return new Format(n, out, '*');
         }
-
     }
 
 }
