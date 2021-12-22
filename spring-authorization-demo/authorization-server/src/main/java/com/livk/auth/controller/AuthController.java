@@ -34,15 +34,19 @@ public class AuthController {
     private final RestTemplate restTemplate;
     private final ProviderSettings providerSettings;
 
+    /**
+     * token：XXXX
+     *
+     * @param code 校验码
+     * @return token
+     */
     @GetMapping("/oauth2/livk/code/livk-client")
     public HttpEntity<String> oAuth(@RequestParam String code) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof Users user) {
             log.info("User:{}", user);
-            log.info("{}", user.getAuthorities());
         }
         String basic = Base64.encode("livk-client:secret").toString();
-        log.info("base64:{}", basic);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
         headers.setBasicAuth(basic);
@@ -51,8 +55,6 @@ public class AuthController {
         param.add("code", code);
         param.add("redirect_uri", "http://127.0.0.1:9000/oauth2/livk/code/livk-client");
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(param, headers);
-        log.info("{}",providerSettings.getIssuer());
-        log.info("{}",providerSettings.getTokenEndpoint());
         String result = restTemplate.postForObject(providerSettings.getIssuer() + providerSettings.getTokenEndpoint(), requestEntity, String.class);
         return ResponseEntity.ok(result);
     }
