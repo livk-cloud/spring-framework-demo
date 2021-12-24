@@ -3,6 +3,9 @@
 > SpringBoot与各种框架等集成<br>
 > 包含着一些常见或者需要使用的技术栈的Demo
 
+> 项目已迁移<br>
+> [Spring Boot Demo](https://github.com/livk-cloud/Spring-Boot-Demo) <br>
+> [Spring Cloud Demo](https://github.com/livk-cloud/Spring-Cloud-Demo) <br>
 > [SpringBoot自动装配](./spring-boot-starter-demo)<br>
 > [SpringCloud Bus跨服务发布Event](./spring-cloud-bus-demo)<br>
 > [SpringCloud Config配置存储Mysql](./spring-cloud-config-demo)<br>

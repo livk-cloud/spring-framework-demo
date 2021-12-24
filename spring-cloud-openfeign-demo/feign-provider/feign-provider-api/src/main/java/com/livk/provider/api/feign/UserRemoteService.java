@@ -19,7 +19,8 @@ import java.util.List;
  * @author livk
  * @date 2021/12/6
  */
-@FeignClient(contextId = "userRemoteService", value = "feign-provider-biz", fallbackFactory = UserRemoteServiceFallbackFactory.class)
+@FeignClient(contextId = "userRemoteService", value = "feign-provider-biz",
+        fallbackFactory = UserRemoteServiceFallbackFactory.class)
 public interface UserRemoteService {
 
     @Cacheable(value = "users", key = "'user:all'", unless = "#result.empty")

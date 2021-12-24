@@ -27,12 +27,6 @@
             <artifactId>elasticjob-lite-spring-boot-starter</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.shardingsphere.elasticjob</groupId>-->
-<!--            <artifactId>elasticjob-cloud-scheduler</artifactId>-->
-<!--            <version>${elasticjob.version}</version>-->
-<!--        </dependency>-->
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

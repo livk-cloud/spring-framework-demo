@@ -6,7 +6,6 @@ import com.livk.auth.domain.Users;
 import com.livk.auth.mapper.UsersMapper;
 import com.livk.auth.service.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
