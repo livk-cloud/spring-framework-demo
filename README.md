@@ -16,7 +16,7 @@
 > [SpringBoot集成Quartz](./spring-quartz-demo)<br>
 > [SpringBoot集成Redis订阅发布](./spring-redis-demo)<br>
 > [SpringBoot集成Sharding-JDBC(待完善)]()<br>
-> [SpringBoot WebFlux文件下载(异步)](./spring-webflux-file-demo)<br>
+> [SpringBoot WebFlux文件下载](./spring-webflux-file-demo)<br>
 > [SpringCloud WebSocket分布式(待完善)]()<br>
 > [SpringCloud Function](./spring-cloud-function-demo)<br>
 > [SpringBoot R2DBC](./spring-r2dbc-demo)<br>

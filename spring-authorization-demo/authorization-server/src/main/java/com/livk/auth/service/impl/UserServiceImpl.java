@@ -2,6 +2,7 @@ package com.livk.auth.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.livk.auth.domain.SecurityUser;
 import com.livk.auth.domain.Users;
 import com.livk.auth.mapper.UsersMapper;
 import com.livk.auth.service.UserService;
@@ -22,7 +23,7 @@ public class UserServiceImpl extends ServiceImpl<UsersMapper, Users> implements 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return this.getOne(Wrappers.lambdaQuery(Users.class).eq(Users::getUsername, username));
+        return new SecurityUser(this.getOne(Wrappers.lambdaQuery(Users.class).eq(Users::getUsername, username)));
     }
 
 }

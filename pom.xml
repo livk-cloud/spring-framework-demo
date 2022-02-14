@@ -32,18 +32,17 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>2.6.2</spring-boot.version>
-        <spring-cloud.version>2021.0.0</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <spring-boot.version>3.0.0-M1</spring-boot.version>
+        <spring-cloud.version>2022.0.0-M1</spring-cloud.version>
         <elasticjob.version>3.0.1</elasticjob.version>
-        <oauth2-authorization.version>0.2.1</oauth2-authorization.version>
+        <oauth2-authorization.version>0.2.2</oauth2-authorization.version>
         <pagehelper.version>1.4.1</pagehelper.version>
         <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
-        <spring.checkstyle.version>0.0.29</spring.checkstyle.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <spring.checkstyle.version>0.0.31</spring.checkstyle.version>
         <easyexcel.version>3.0.5</easyexcel.version>
-        <redisson.version>3.16.6</redisson.version>
-        <openapi.version>1.5.13</openapi.version>
+        <redisson.version>3.16.8</redisson.version>
+        <openapi.version>1.6.6</openapi.version>
     </properties>
 
     <dependencies>
@@ -69,14 +68,6 @@
                 <version>${spring-cloud.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
 
             <dependency>

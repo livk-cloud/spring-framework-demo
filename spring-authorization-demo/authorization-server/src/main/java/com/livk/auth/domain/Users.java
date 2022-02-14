@@ -26,11 +26,8 @@ import java.util.Collection;
  * @date 2021/12/22
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @TableName(value = "users")
-@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS)
-public class Users implements Serializable, UserDetails {
+public class Users implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
@@ -42,40 +39,4 @@ public class Users implements Serializable, UserDetails {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
-    public static final String COL_ID = "id";
-
-    public static final String COL_USERNAME = "username";
-
-    public static final String COL_PASSWORD = "password";
-
-    @JsonIgnore
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.createAuthorityList("ROLE_ADMIN");
-    }
-
-    @JsonIgnore
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @JsonIgnore
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @JsonIgnore
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @JsonIgnore
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
 }

@@ -1,7 +1,9 @@
 package com.livk.redis;
 
 import com.livk.common.LivkSpring;
+import com.livk.common.SpringContextHolder;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
