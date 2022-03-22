@@ -1,7 +1,7 @@
 package com.livk.r2dbc.repository;
 
 import com.livk.r2dbc.domain.User;
-import org.springframework.data.repository.reactive.ReactiveCrudRepository;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @date 2021/12/6
  */
 @Repository
-public interface UserRepository extends ReactiveCrudRepository<User, Long> {
+public interface UserRepository extends R2dbcRepository<User, Long> {
 
 }

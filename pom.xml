@@ -27,13 +27,14 @@
         <module>spring-cloud-openfeign-demo</module>
         <module>spring-redis-lock-demo</module>
         <module>spring-cloud-square-demo</module>
+        <module>spring-mqtt-demo</module>
     </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>3.0.0-M1</spring-boot.version>
-        <spring-cloud.version>2022.0.0-M1</spring-cloud.version>
+        <spring-boot.version>3.0.0-SNAPSHOT</spring-boot.version>
+        <spring-cloud.version>2022.0.0-SNAPSHOT</spring-cloud.version>
         <elasticjob.version>3.0.1</elasticjob.version>
         <oauth2-authorization.version>0.2.2</oauth2-authorization.version>
         <pagehelper.version>1.4.1</pagehelper.version>
