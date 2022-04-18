@@ -1,6 +1,5 @@
 package com.livk.controller;
 
-import lombok.SneakyThrows;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
@@ -29,18 +28,16 @@ import java.util.Objects;
 @RestController
 public class FileController {
 
-	@SneakyThrows
-	@PostMapping("/download")
-	public Mono<Void> download(ServerHttpResponse response) {
-		ClassPathResource classPathResource = new ClassPathResource("templates/device.xlsx");
-		Flux<DataBuffer> dataBufferFlux = DataBufferUtils.read(classPathResource, new DefaultDataBufferFactory(), 4096);
-		ZeroCopyHttpOutputMessage zeroCopyHttpOutputMessage = (ZeroCopyHttpOutputMessage) response;
-		HttpHeaders headers = zeroCopyHttpOutputMessage.getHeaders();
-		headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename="
-				+ URLEncoder.encode(Objects.requireNonNull(classPathResource.getFilename()), StandardCharsets.UTF_8));
-		MediaType mediaType = new MediaType("application", "vnd.ms-excel", StandardCharsets.UTF_8);
-		headers.setContentType(mediaType);
-		return zeroCopyHttpOutputMessage.writeWith(dataBufferFlux);
-	}
-
+    @PostMapping("/download")
+    public Mono<Void> download(ServerHttpResponse response) {
+        ClassPathResource classPathResource = new ClassPathResource("templates/device.xlsx");
+        Flux<DataBuffer> dataBufferFlux = DataBufferUtils.read(classPathResource, new DefaultDataBufferFactory(), 4096);
+        ZeroCopyHttpOutputMessage zeroCopyHttpOutputMessage = (ZeroCopyHttpOutputMessage) response;
+        HttpHeaders headers = zeroCopyHttpOutputMessage.getHeaders();
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename="
+                                                     + URLEncoder.encode(Objects.requireNonNull(classPathResource.getFilename()), StandardCharsets.UTF_8));
+        MediaType mediaType = new MediaType("application", "vnd.ms-excel", StandardCharsets.UTF_8);
+        headers.setContentType(mediaType);
+        return zeroCopyHttpOutputMessage.writeWith(dataBufferFlux);
+    }
 }

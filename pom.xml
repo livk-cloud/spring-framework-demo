@@ -33,10 +33,10 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <spring-boot.version>3.0.0-SNAPSHOT</spring-boot.version>
-        <spring-cloud.version>2022.0.0-SNAPSHOT</spring-cloud.version>
+        <spring-boot.version>2.6.6</spring-boot.version>
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
         <elasticjob.version>3.0.1</elasticjob.version>
-        <oauth2-authorization.version>0.2.2</oauth2-authorization.version>
+        <oauth2-authorization.version>0.2.3</oauth2-authorization.version>
         <pagehelper.version>1.4.1</pagehelper.version>
         <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>

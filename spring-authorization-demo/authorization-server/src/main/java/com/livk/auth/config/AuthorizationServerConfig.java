@@ -62,8 +62,8 @@ public class AuthorizationServerConfig {
     public RegisteredClientRepository registeredClientRepository(JdbcTemplate jdbcTemplate,
                                                                  PasswordEncoder passwordEncoder) {
         RegisteredClient registeredClient = RegisteredClient
-                .withId("livk-client-id")
-                .clientId("livk-client")
+                .withId("livk")
+                .clientId("livk")
                 .clientSecret(passwordEncoder.encode("secret"))
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)

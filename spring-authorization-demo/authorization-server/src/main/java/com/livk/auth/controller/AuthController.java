@@ -9,10 +9,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
 import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -57,5 +55,9 @@ public class AuthController {
         var requestEntity = new HttpEntity<>(param, headers);
         var result = restTemplate.postForObject(providerSettings.getIssuer() + providerSettings.getTokenEndpoint(), requestEntity, String.class);
         return ResponseEntity.ok(result);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Base64.encode("livk:secret"));
     }
 }

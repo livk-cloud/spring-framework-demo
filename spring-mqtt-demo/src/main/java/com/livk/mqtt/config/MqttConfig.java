@@ -18,7 +18,6 @@ import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 @Configuration
 @EnableConfigurationProperties(MqttProperties.class)
 public class MqttConfig {
-
     @Bean
     public MqttConnectOptions mqttConnectOptions(MqttProperties properties) {
         MqttConnectOptions options = new MqttConnectOptions();
